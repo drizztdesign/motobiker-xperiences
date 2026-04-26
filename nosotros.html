@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros — Motobiker Xperiences</title>
+  <meta name="description" content="Somos moteros que un día decidimos que organizar viajes era mejor que trabajar en una oficina. Conocemos los destinos porque los hemos rodado todos. Equipo, filosofía y forma de trabajar.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://motobiker-xperiences.vercel.app/nosotros.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Motobiker Xperiences">
+  <meta property="og:title" content="Nosotros — Motobiker Xperiences">
+  <meta property="og:description" content="Somos moteros que conocen los destinos porque los han rodado todos.">
+  <meta property="og:url" content="https://motobiker-xperiences.vercel.app/nosotros.html">
+  <meta property="og:image" content="https://motobiker-xperiences.vercel.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "@id": "https://motobiker-xperiences.vercel.app/#organization",
+    "name": "Motobiker Xperiences",
+    "description": "Agencia de viajes guiados en moto especializada en destinos de aventura.",
+    "url": "https://motobiker-xperiences.vercel.app/",
+    "slogan": "Viajes en moto. Destinos que te transforman.",
+    "areaServed": ["ES", "MA", "CO", "TH", "MG"],
+    "sameAs": []
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --color-bg: #050505; --color-bg-2: #0d0d0f; --color-text: #fafafa;
+      --color-mid: #888; --color-line: #1f1f1f;
+      --color-accent: #FF5E14; --color-accent-hover: #E04A05;
+      --font-display: 'Bebas Neue', 'Space Grotesk', sans-serif;
+      --font-secondary: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --max-w: 1280px;
+    }
+
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; padding: 0 2rem; background: rgba(5,5,5,.7); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .3s, background .3s; }
+    header.scrolled { background: rgba(5,5,5,.95); border-bottom-color: var(--color-line); }
+    .header-inner { max-width: var(--max-w); width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; letter-spacing: .08em; color: #fff; text-transform: uppercase; }
+    .brand span { color: var(--color-accent); }
+    nav ul { display: flex; gap: 2.25rem; }
+    nav a { font-size: .82rem; font-weight: 500; letter-spacing: .04em; color: rgba(255,255,255,.7); transition: color .2s; }
+    nav a:hover, nav a.active { color: #fff; }
+    .header-cta { font-size: .8rem; font-weight: 600; padding: .55rem 1.25rem; border: 1px solid var(--color-accent); color: var(--color-accent); border-radius: 100px; transition: all .2s; }
+    .header-cta:hover { background: var(--color-accent); color: #050505; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: var(--color-bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 2.25rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--font-display); font-size: 2.25rem; font-weight: 400; letter-spacing: .04em; color: #fff; text-transform: uppercase; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.75rem; color: #fff; cursor: pointer; background: none; border: none; }
+
+    .page-hero { padding: 160px 2rem 80px; border-bottom: 1px solid var(--color-line); }
+    .page-hero .container { max-width: var(--max-w); margin: 0 auto; }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 9vw, 7rem); font-weight: 400; line-height: .92; letter-spacing: 0; margin: 1.25rem 0 1.5rem; max-width: 1000px; text-transform: uppercase; }
+    .page-hero h1 em { font-style: normal; color: var(--color-accent); }
+    .page-hero p { font-size: 1.15rem; font-weight: 300; color: var(--color-mid); line-height: 1.7; max-width: 720px; }
+    .section-eyebrow { font-size: .72rem; letter-spacing: .25em; text-transform: uppercase; color: var(--color-accent); font-weight: 600; }
+
+    section { padding: 100px 2rem; }
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.4rem, 5.5vw, 4.5rem); font-weight: 400; line-height: 1; letter-spacing: 0; margin-bottom: 1.5rem; text-transform: uppercase; }
+    .section-title em { font-style: normal; color: var(--color-accent); }
+    .section-text { font-size: 1.05rem; font-weight: 300; color: var(--color-mid); line-height: 1.75; max-width: 640px; }
+
+    /* MANIFIESTO */
+    .manifiesto { border-bottom: 1px solid var(--color-line); }
+    .manifiesto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    @media (max-width: 900px) { .manifiesto-grid { grid-template-columns: 1fr; gap: 3rem; } }
+    .manifiesto blockquote { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 4rem); line-height: 1.05; color: #fff; letter-spacing: 0; text-transform: uppercase; font-weight: 400; }
+    .manifiesto blockquote em { font-style: normal; color: var(--color-accent); }
+    .manifiesto-text p { font-size: 1.05rem; color: var(--color-mid); line-height: 1.8; margin-bottom: 1.5rem; }
+
+    /* NÚMEROS */
+    .stats { border-bottom: 1px solid var(--color-line); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+    @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+    .stat-item { padding: 2.5rem 0; border-top: 1px solid var(--color-line); position: relative; }
+    .stat-item::before { content: ''; position: absolute; top: -1px; left: 0; width: 40px; height: 1px; background: var(--color-accent); }
+    .stat-num { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); color: var(--color-accent); line-height: 1; margin-bottom: .5rem; }
+    .stat-label { font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--color-mid); font-weight: 600; line-height: 1.5; }
+
+    /* VALORES */
+    .valores { border-bottom: 1px solid var(--color-line); background: var(--color-bg-2); }
+    .valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    @media (max-width: 900px) { .valores-grid { grid-template-columns: 1fr; } }
+    .valor-card { padding: 2.5rem; }
+    .valor-num { font-family: var(--font-display); font-size: 1rem; color: var(--color-accent); letter-spacing: .15em; margin-bottom: 1.25rem; }
+    .valor-card h3 { font-family: var(--font-secondary); font-size: 1.35rem; font-weight: 600; color: #fff; margin-bottom: .85rem; }
+    .valor-card p { font-size: .95rem; color: var(--color-mid); line-height: 1.7; }
+
+    /* DESTINOS RECORRIDOS */
+    .destinos { border-bottom: 1px solid var(--color-line); }
+    .destinos-map {
+      position: relative; margin-top: 3rem;
+      aspect-ratio: 16/9; border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--color-line);
+      background: #050505;
+    }
+    .destinos-map img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      filter: brightness(.85) saturate(1.1);
+      transition: transform 1s cubic-bezier(.2,.8,.2,1);
+    }
+    .destinos-map:hover img { transform: scale(1.03); }
+    .destinos-map::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(5,5,5,.0) 0%, rgba(5,5,5,.3) 70%, rgba(5,5,5,.6) 100%);
+      pointer-events: none;
+    }
+    .destinos-map-caption {
+      position: absolute; left: 2rem; bottom: 2rem; z-index: 2;
+      font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: #fff; text-transform: uppercase; letter-spacing: 0; line-height: 1;
+      max-width: 70%;
+    }
+    .destinos-map-caption span { color: var(--color-accent); }
+    .destinos-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin-top: 2rem; border: 1px solid var(--color-line); }
+    .destino-item { padding: 2rem 2.5rem; border-bottom: 1px solid var(--color-line); border-right: 1px solid var(--color-line); display: flex; align-items: center; justify-content: space-between; gap: 1rem; transition: background .2s; }
+    .destino-item:hover { background: rgba(255, 94, 20, .04); }
+    .destino-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff; text-transform: uppercase; letter-spacing: 0; }
+    .destino-meta { font-size: .78rem; color: var(--color-accent); letter-spacing: .15em; text-transform: uppercase; font-weight: 600; }
+    @media (max-width: 700px) { .destinos-list { grid-template-columns: 1fr; } .destino-item { border-right: none; } .destinos-map-caption { left: 1.25rem; bottom: 1.25rem; max-width: 88%; } }
+
+    /* PAGE HERO con foto de fondo */
+    .page-hero { position: relative; overflow: hidden; }
+    .page-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('assets/hero-still.jpg');
+      background-size: cover; background-position: center 30%;
+      opacity: .35;
+      filter: blur(2px) saturate(1.1);
+    }
+    .page-hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(5,5,5,.92) 0%, rgba(5,5,5,.65) 50%, rgba(5,5,5,.85) 100%);
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+
+    /* CTA FINAL */
+    .cta-final { background: var(--color-accent); color: #050505; }
+    .cta-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: end; }
+    @media (max-width: 768px) { .cta-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .cta-final h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 400; line-height: .95; letter-spacing: 0; text-transform: uppercase; }
+    .cta-final p { font-size: 1.1rem; color: rgba(0,0,0,.72); margin-bottom: 1.5rem; }
+    .btn-primary { display: inline-flex; align-items: center; gap: .5rem; padding: .95rem 2rem; background: var(--color-accent); color: #050505; font-size: .85rem; font-weight: 700; letter-spacing: .04em; border-radius: 100px; transition: all .25s; text-transform: uppercase; }
+    .btn-primary:hover { background: var(--color-accent-hover); transform: translateY(-2px); }
+    .cta-final .btn-primary { background: #050505; color: var(--color-accent); }
+    .cta-final .btn-primary:hover { background: #1a1a1a; }
+
+    footer { background: var(--color-bg); padding: 80px 2rem 40px; border-top: 1px solid var(--color-line); }
+    .footer-grid { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--color-line); margin-bottom: 2rem; }
+    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff; letter-spacing: .04em; margin-bottom: 1rem; text-transform: uppercase; }
+    .footer-brand span { color: var(--color-accent); }
+    .footer-desc { font-size: .9rem; color: var(--color-mid); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #fff; margin-bottom: 1.25rem; font-weight: 700; }
+    .footer-col li { margin-bottom: .55rem; }
+    .footer-col a { font-size: .9rem; color: var(--color-mid); transition: color .2s; }
+    .footer-col a:hover { color: var(--color-accent); }
+    .footer-bottom { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; font-size: .78rem; color: var(--color-mid); flex-wrap: wrap; gap: 1rem; }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    @media (max-width: 768px) {
+      section { padding: 80px 1.25rem; }
+      .page-hero { padding: 130px 1.25rem 60px; }
+      nav, .header-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/premium.css">
+</head>
+<body>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="brand" aria-label="Motobiker Xperiences"><img src="assets/logo.png" alt="Motobiker Xperiences" class="brand-logo"></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="viajes.html">Viajes</a></li>
+        <li><a href="experiencias.html">Experiencias</a></li>
+        <li><a href="nosotros.html" class="active">Nosotros</a></li>
+      </ul>
+    </nav>
+    <a href="contacto.html" class="header-cta">Reserva</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">✕</button>
+  <a href="index.html">Inicio</a>
+  <a href="viajes.html">Viajes</a>
+  <a href="experiencias.html">Experiencias</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="contacto.html" style="color:var(--color-accent);">Reserva</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <p class="section-eyebrow">Quiénes somos</p>
+    <h1><span class="word-reveal">Moteros que<br>un día <em>dijeron</em> basta.</span></h1>
+    <p class="reveal">Basta de viajes mal organizados, hoteles que no admitían motos y guías que conocían la ruta solo en Google Maps. Decidimos montar la agencia que a nosotros nos habría gustado contratar.</p>
+  </div>
+</section>
+
+<section class="manifiesto">
+  <div class="container">
+    <div class="manifiesto-grid">
+      <blockquote class="reveal">"Conocemos los<br>destinos porque<br>los hemos <em>rodado</em><br>todos."</blockquote>
+      <div class="manifiesto-text">
+        <p class="reveal">No vendemos destinos que no hemos pisado. Cada ruta de nuestro catálogo ha sido recorrida primero por nuestros guías, con tiempo, en distintas épocas del año y en distintas condiciones. Si está en el catálogo es porque lo hemos vivido y queremos que otros lo vivan.</p>
+        <p class="reveal">Llevamos más de una década en esto. Empezamos haciendo viajes en grupo con amigos, luego los amigos empezaron a pagar porque no querían encargarse de nada, y un día se nos ocurrió que eso podía ser un negocio. Lo sigue siendo por una sola razón: hacemos bien lo que otros hacen mal.</p>
+        <p class="reveal">El mantra es sencillo: grupos pequeños, logística impecable, destinos que no están en el primer resultado de Google. Lo demás viene solo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <p class="section-eyebrow">En números</p>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="count-up" data-target="4">0</span></div>
+        <p class="stat-label">Continentes recorridos</p>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="count-up" data-target="14">0</span>+</div>
+        <p class="stat-label">Destinos en cartera activa</p>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="count-up" data-target="320">0</span>+</div>
+        <p class="stat-label">Moteros guiados</p>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">10</div>
+        <p class="stat-label">Plazas máximas por grupo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="valores">
+  <div class="container">
+    <p class="section-eyebrow">Lo que nos mueve</p>
+    <h2 class="section-title"><span class="word-reveal">Seis principios.<br>Ninguno <em>negociable</em>.</span></h2>
+    <div class="valores-grid">
+      <div class="valor-card reveal">
+        <p class="valor-num">01</p>
+        <h3>Grupos pequeños, siempre</h3>
+        <p>Máximo 10 motos. No por marketing, sino porque con más es imposible mantener el ritmo de cada piloto y la cohesión del grupo. Es la diferencia entre un viaje y una caravana.</p>
+      </div>
+      <div class="valor-card reveal">
+        <p class="valor-num">02</p>
+        <h3>Destinos antes de venderlos</h3>
+        <p>Ningún destino entra en catálogo sin que un guía lo haya recorrido completo. Sabemos dónde está el único taller en 300 km, cuál es el desvío cuando llueve y qué restaurante merece la pena.</p>
+      </div>
+      <div class="valor-card reveal">
+        <p class="valor-num">03</p>
+        <h3>Logística invisible</h3>
+        <p>El mejor viaje es el que parece que no tiene logística. Cada detalle pensado para que el motero no tenga que pensar en nada que no sea la siguiente curva.</p>
+      </div>
+      <div class="valor-card reveal">
+        <p class="valor-num">04</p>
+        <h3>Plan B siempre listo</h3>
+        <p>Algo siempre falla. Una avería, un cierre de carretera, una tormenta. Cada etapa tiene alternativa preparada de antemano. El grupo nunca se queda parado sin saber qué hacer.</p>
+      </div>
+      <div class="valor-card reveal">
+        <p class="valor-num">05</p>
+        <h3>Precios cerrados</h3>
+        <p>Lo que ves en el presupuesto es lo que pagas. Sin sorpresas en destino, sin suplementos de última hora, sin letra pequeña. El precio final se pacta antes de arrancar.</p>
+      </div>
+      <div class="valor-card reveal">
+        <p class="valor-num">06</p>
+        <h3>Después del viaje</h3>
+        <p>Entregamos fotos, GPX de cada etapa y un resumen del viaje. Y si sale bien —que suele salir— somos los primeros en empezar a hablar del siguiente destino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="destinos">
+  <div class="container">
+    <p class="section-eyebrow">Destinos que conocemos</p>
+    <h2 class="section-title"><span class="word-reveal">Los hemos rodado<br>todos. <em>Todos</em>.</span></h2>
+    <div class="destinos-map reveal">
+      <img src="assets/world-map.jpg" alt="Mapa mundi con las rutas de Motobiker Xperiences trazadas en naranja" loading="lazy">
+      <p class="destinos-map-caption">Cuatro <span>continentes</span>.<br>Una forma de viajar.</p>
+    </div>
+    <div class="destinos-list">
+      <div class="destino-item reveal">
+        <span class="destino-name">Marruecos</span>
+        <span class="destino-meta">Trail · Pistas · Desierto</span>
+      </div>
+      <div class="destino-item reveal">
+        <span class="destino-name">Colombia</span>
+        <span class="destino-meta">Andes · Café · Llanos</span>
+      </div>
+      <div class="destino-item reveal">
+        <span class="destino-name">Tailandia</span>
+        <span class="destino-meta">Norte · Selva · Montaña</span>
+      </div>
+      <div class="destino-item reveal">
+        <span class="destino-name">Madagascar</span>
+        <span class="destino-meta">Pistas · Selva · Costa</span>
+      </div>
+      <div class="destino-item reveal">
+        <span class="destino-name">Próximo destino</span>
+        <span class="destino-meta">En exploración…</span>
+      </div>
+      <div class="destino-item reveal">
+        <span class="destino-name">A medida</span>
+        <span class="destino-meta">Donde tú quieras ir</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-grid">
+      <h2>¿Nos acompañas<br>al siguiente?</h2>
+      <div>
+        <p>Cada viaje tiene plazas contadas. Si tienes un destino en la cabeza, cuéntanoslo antes de que se llenen.</p>
+        <a href="contacto.html" class="btn-primary">Reservar plaza →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="footer-brand-logo" aria-label="Motobiker Xperiences"><img src="assets/logo.png" alt="Motobiker Xperiences"></a>
+      <p class="footer-desc">Agencia de viajes guiados en moto. Rutas trail, aventura, fly&amp;ride, alquiler y eventos motoclub.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="viajes.html">Viajes</a></li>
+        <li><a href="experiencias.html">Experiencias</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="contacto.html">Reservar viaje</a></li>
+        <li><a href="mailto:hola@motobiker-xperiences.com">hola@motobiker-xperiences.com</a></li>
+        <li><a href="tel:+34000000000">+34 000 00 00 00</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Síguenos</h4>
+      <ul>
+        <li><a href="#" rel="noopener">Instagram</a></li>
+        <li><a href="#" rel="noopener">YouTube</a></li>
+        <li><a href="#" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-monumental" aria-hidden="true">NOSOTROS</div>
+  <div class="footer-bottom">
+    <span>© Motobiker Xperiences · Todos los derechos reservados</span>
+    <span>Viajes en moto. Destinos que te transforman.</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+</script>
+
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="page-transition" aria-hidden="true"></div>
+<script src="assets/premium.js" defer></script>
+</body>
+</html>

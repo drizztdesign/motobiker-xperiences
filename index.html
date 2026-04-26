@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motobiker Xperiences — Viajes en moto. Destinos que te transforman.</title>
+  <meta name="description" content="Agencia premium de viajes guiados en moto. Rutas trail, aventuras off-road, fly&ride, alquiler y eventos motoclub. Grupos pequeños, motos preparadas, guías locales.">
+  <meta name="keywords" content="viajes en moto, rutas en moto, viajes trail, motoaventura, fly and ride, alquiler de motos, viajes guiados moto, agencia motera">
+  <meta name="author" content="Motobiker Xperiences">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://motobiker-xperiences.vercel.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Motobiker Xperiences">
+  <meta property="og:title" content="Motobiker Xperiences — Viajes en moto. Destinos que te transforman.">
+  <meta property="og:description" content="Rutas guiadas en moto premium. Trail, aventura, fly&ride y eventos. Pequeños grupos, motos preparadas, guías locales.">
+  <meta property="og:url" content="https://motobiker-xperiences.vercel.app/">
+  <meta property="og:image" content="https://motobiker-xperiences.vercel.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Motobiker Xperiences — Viajes en moto premium">
+  <meta name="twitter:description" content="Rutas guiadas en moto: trail, aventura, fly&ride y eventos motoclub.">
+  <meta name="twitter:image" content="https://motobiker-xperiences.vercel.app/assets/og-image.jpg">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TravelAgency",
+        "@id": "https://motobiker-xperiences.vercel.app/#organization",
+        "name": "Motobiker Xperiences",
+        "description": "Agencia de viajes guiados en moto: rutas trail, aventura, fly&ride, alquiler y eventos motoclub.",
+        "url": "https://motobiker-xperiences.vercel.app/",
+        "areaServed": ["ES", "MA", "PT", "FR", "IT"],
+        "slogan": "Viajes en moto. Destinos que te transforman.",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://motobiker-xperiences.vercel.app/#website",
+        "url": "https://motobiker-xperiences.vercel.app/",
+        "name": "Motobiker Xperiences",
+        "publisher": { "@id": "https://motobiker-xperiences.vercel.app/#organization" },
+        "inLanguage": "es-ES"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --color-bg: #050505;
+      --color-bg-2: #0d0d0f;
+      --color-text: #fafafa;
+      --color-mid: #888;
+      --color-line: #1f1f1f;
+      --color-accent: #FF5E14;
+      --color-accent-hover: #E04A05;
+      --font-display: 'Bebas Neue', 'Space Grotesk', sans-serif;
+      --font-secondary: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --max-w: 1280px;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 72px; display: flex; align-items: center; padding: 0 2rem;
+      background: rgba(5,5,5,.7); backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s, background .3s;
+    }
+    header.scrolled { background: rgba(5,5,5,.95); border-bottom-color: var(--color-line); }
+    .header-inner { max-width: var(--max-w); width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; letter-spacing: .08em; color: #fff; text-transform: uppercase; }
+    .brand span { color: var(--color-accent); font-weight: 400; }
+    nav ul { display: flex; gap: 2.25rem; }
+    nav a { font-size: .82rem; font-weight: 500; letter-spacing: .04em; color: rgba(255,255,255,.7); transition: color .2s; }
+    nav a:hover, nav a.active { color: #fff; }
+    .header-cta { font-size: .8rem; font-weight: 600; padding: .55rem 1.25rem; border: 1px solid var(--color-accent); color: var(--color-accent); border-radius: 100px; transition: all .2s; }
+    .header-cta:hover { background: var(--color-accent); color: #050505; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; }
+
+    .mobile-nav { display: none; position: fixed; inset: 0; background: var(--color-bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 2.25rem; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--font-display); font-size: 2.25rem; font-weight: 400; letter-spacing: .04em; color: #fff; text-transform: uppercase; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.75rem; color: #fff; cursor: pointer; background: none; border: none; }
+
+    /* HERO con espacio para el vídeo de transición */
+    .scroll-video-wrapper { height: 175vh; }
+    .scroll-video-wrapper .hero { position: sticky; top: 0; height: 100vh; }
+    .hero { min-height: 600px; display: flex; align-items: center; justify-content: flex-start; overflow: hidden; padding: 0 6vw; background: var(--color-bg); }
+    @media (max-width: 768px) {
+      .scroll-video-wrapper { height: auto; }
+      .scroll-video-wrapper .hero { position: relative; }
+      .hero { padding: 0 5vw; justify-content: center; text-align: center; }
+    }
+    .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,.78) 0%, rgba(10,10,10,.55) 100%); }
+    .hero-content { position: relative; z-index: 2; color: #fff; max-width: 820px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .75rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--color-accent); margin-bottom: 2rem;
+      font-weight: 600;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--color-accent); }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.25rem, 9vw, 7rem);
+      font-weight: 400; letter-spacing: -.005em; line-height: .95;
+      margin-bottom: 1.75rem;
+      text-transform: uppercase;
+    }
+    .hero h1 em { font-style: normal; color: var(--color-accent); }
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.4vw, 1.2rem); font-weight: 300;
+      color: rgba(255,255,255,.78); margin-bottom: 3rem; max-width: 560px;
+      line-height: 1.65;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .95rem 2rem; background: var(--color-accent); color: #050505;
+      font-size: .85rem; font-weight: 700; letter-spacing: .04em;
+      border-radius: 100px; transition: all .25s; text-transform: uppercase;
+    }
+    .btn-primary:hover { background: var(--color-accent-hover); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .95rem 2rem; border: 1px solid rgba(255,255,255,.22); color: #fff;
+      font-size: .85rem; font-weight: 600; letter-spacing: .04em;
+      border-radius: 100px; transition: all .25s; text-transform: uppercase;
+    }
+    .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.05); }
+    @media (max-width: 768px) {
+      .hero-content { text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hero-sub { margin: 0 auto 3rem; }
+    }
+
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .5rem; color: rgba(255,255,255,.4); font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; }
+    .scroll-hint-line { width: 1px; height: 40px; background: rgba(255,255,255,.25); animation: sl 1.8s ease-in-out infinite; }
+    @keyframes sl { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+    /* SECCIONES */
+    section { padding: 120px 2rem; }
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    .section-eyebrow { font-size: .72rem; letter-spacing: .25em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 1.25rem; font-weight: 600; }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.4rem, 5.5vw, 4.5rem); font-weight: 400; line-height: 1; letter-spacing: 0; margin-bottom: 1.5rem; text-transform: uppercase; }
+    .section-title em { font-style: normal; color: var(--color-accent); }
+    .section-text { font-size: 1.05rem; font-weight: 300; color: var(--color-mid); line-height: 1.75; max-width: 640px; }
+
+    /* INTRO */
+    .intro { background: var(--color-bg); border-bottom: 1px solid var(--color-line); }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start; }
+    @media (max-width: 1024px) { .intro-grid { grid-template-columns: 1fr; gap: 3rem; } }
+    .intro-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    .stat-num { font-family: var(--font-display); font-size: 3.25rem; font-weight: 400; color: var(--color-accent); line-height: 1; margin-bottom: .25rem; }
+    .stat-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--color-mid); }
+
+    /* SERVICIOS / EXPERIENCIAS PREVIEW */
+    .servicios { background: var(--color-bg-2); border-bottom: 1px solid var(--color-line); }
+    .servicios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--color-line); margin-top: 4rem; border: 1px solid var(--color-line); }
+    .servicio { padding: 3rem; background: var(--color-bg-2); transition: background .25s; cursor: default; }
+    .servicio:hover { background: #1a1a1a; }
+    .servicio-num { font-family: var(--font-display); font-size: 1rem; color: var(--color-accent); margin-bottom: 1rem; letter-spacing: .12em; }
+    .servicio h3 { font-family: var(--font-secondary); font-size: 1.55rem; font-weight: 600; margin-bottom: 1rem; color: #fff; letter-spacing: -.005em; }
+    .servicio p { color: var(--color-mid); font-size: .95rem; line-height: 1.7; }
+    @media (max-width: 768px) { .servicios-grid { grid-template-columns: 1fr; } .servicio { padding: 2rem; } }
+
+    /* PROCESO */
+    .proceso { background: var(--color-bg); border-bottom: 1px solid var(--color-line); }
+    .proceso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    .paso { padding-top: 2rem; border-top: 1px solid var(--color-line); position: relative; }
+    .paso::before {
+      content: ''; position: absolute; top: -1px; left: 0; width: 40px; height: 1px; background: var(--color-accent);
+    }
+    .paso-num { font-family: var(--font-display); font-size: 1rem; color: var(--color-accent); margin-bottom: 1rem; letter-spacing: .12em; }
+    .paso h4 { font-family: var(--font-secondary); font-size: 1.15rem; font-weight: 600; margin-bottom: .75rem; color: #fff; }
+    .paso p { font-size: .88rem; color: var(--color-mid); line-height: 1.65; }
+    @media (max-width: 1024px) { .proceso-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .proceso-grid { grid-template-columns: 1fr; } }
+
+    /* VIAJES PREVIEW */
+    .proyectos-preview { background: var(--color-bg-2); border-bottom: 1px solid var(--color-line); }
+    .proyectos-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    .proyecto-card { background: var(--color-bg); aspect-ratio: 4/5; position: relative; overflow: hidden; border: 1px solid var(--color-line); transition: border-color .25s; }
+    .proyecto-card:hover { border-color: var(--color-accent); }
+    .proyecto-card-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: .55;
+      transition: opacity .35s, transform .8s;
+    }
+    .proyecto-card:hover .proyecto-card-bg { opacity: .75; transform: scale(1.04); }
+    .proyecto-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(5,5,5,.2) 0%, rgba(5,5,5,.85) 100%);
+      pointer-events: none;
+    }
+    .proyecto-card-content { position: absolute; inset: 0; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; z-index: 2; }
+    .proyecto-tag { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--color-accent); font-weight: 600; }
+    .proyecto-title { font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: #fff; line-height: 1; text-transform: uppercase; letter-spacing: -.005em; }
+    .proyecto-meta { font-size: .78rem; color: rgba(255,255,255,.65); margin-top: .5rem; letter-spacing: .04em; }
+    @media (max-width: 900px) { .proyectos-preview-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .proyectos-preview-grid { grid-template-columns: 1fr; } }
+
+    /* TESTIMONIOS */
+    .testimonios { background: var(--color-bg); border-bottom: 1px solid var(--color-line); }
+    .testimonios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    .testimonio-card { padding: 2.5rem; }
+    .testimonio-stars { color: var(--color-accent); font-size: 1rem; letter-spacing: .25em; margin-bottom: 1.25rem; }
+    .testimonio-quote { font-size: 1.02rem; line-height: 1.7; color: rgba(255,255,255,.85); margin-bottom: 2rem; font-weight: 300; }
+    .testimonio-author { font-family: var(--font-secondary); font-size: .95rem; color: #fff; font-weight: 600; }
+    .testimonio-meta { font-size: .78rem; color: var(--color-mid); margin-top: .25rem; letter-spacing: .04em; }
+    @media (max-width: 1024px) { .testimonios-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px) { .testimonios-grid { grid-template-columns: 1fr; } }
+
+    /* CTA FINAL */
+    .cta-final { background: var(--color-accent); color: #050505; }
+    .cta-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: end; }
+    @media (max-width: 768px) { .cta-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .cta-final h2 { font-family: var(--font-display); font-size: clamp(2.75rem, 6vw, 5.5rem); font-weight: 400; line-height: .95; letter-spacing: 0; text-transform: uppercase; }
+    .cta-final p { font-size: 1.1rem; color: rgba(0,0,0,.72); margin-bottom: 1.5rem; }
+    .cta-final .btn-primary { background: #050505; color: var(--color-accent); }
+    .cta-final .btn-primary:hover { background: #1a1a1a; }
+
+    /* FOOTER */
+    footer { background: var(--color-bg); padding: 80px 2rem 40px; border-top: 1px solid var(--color-line); }
+    .footer-grid { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--color-line); margin-bottom: 2rem; }
+    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff; letter-spacing: .04em; margin-bottom: 1rem; text-transform: uppercase; }
+    .footer-brand span { color: var(--color-accent); }
+    .footer-desc { font-size: .9rem; color: var(--color-mid); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #fff; margin-bottom: 1.25rem; font-weight: 700; }
+    .footer-col li { margin-bottom: .55rem; }
+    .footer-col a { font-size: .9rem; color: var(--color-mid); transition: color .2s; }
+    .footer-col a:hover { color: var(--color-accent); }
+    .footer-bottom { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; font-size: .78rem; color: var(--color-mid); flex-wrap: wrap; gap: 1rem; }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    @media (max-width: 768px) {
+      section { padding: 80px 1.25rem; }
+      nav, .header-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/premium.css">
+</head>
+<body>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+<div class="orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="brand" aria-label="Motobiker Xperiences"><img src="assets/logo.png" alt="Motobiker Xperiences" class="brand-logo"></a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="viajes.html">Viajes</a></li>
+        <li><a href="experiencias.html">Experiencias</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+    <a href="contacto.html" class="header-cta">Reserva</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">✕</button>
+  <a href="index.html">Inicio</a>
+  <a href="viajes.html">Viajes</a>
+  <a href="experiencias.html">Experiencias</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="contacto.html" style="color:var(--color-accent);">Reserva</a>
+</div>
+
+<!-- SCROLL-VIDEO-SECTION -->
+<div class="scroll-video-wrapper">
+<section class="hero">
+  <video id="heroVideo" muted playsinline preload="auto" poster="assets/hero-poster.jpg">
+    <source src="assets/hero-scrub-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+    <source src="assets/hero-scrub.mp4" type="video/mp4">
+  </video>
+  <div class="hero-placeholder" aria-hidden="true"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Viajes guiados en moto</p>
+    <h1 class="hero-h1-animate">Destinos<br>que te <em>transforman</em>.</h1>
+    <p class="hero-sub">Diseñamos viajes en moto a otra escala: rutas curadas, motos preparadas, guías locales y grupos pequeños. Tú solo tienes que abrir gas.</p>
+    <div class="hero-btns">
+      <a href="viajes.html" class="btn-primary">Ver próximos viajes →</a>
+      <a href="contacto.html" class="btn-ghost">Hablar con un guía</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-hint-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Madagascar</span>
+    <span class="marquee-item">Colombia</span>
+    <span class="marquee-item">Tailandia</span>
+    <span class="marquee-item">Marruecos</span>
+    <span class="marquee-item">Trail · Aventura</span>
+    <span class="marquee-item">Fly &amp; Ride</span>
+    <span class="marquee-item">Grupos pequeños</span>
+    <span class="marquee-item">Rutas a medida</span>
+    <span class="marquee-item">Madagascar</span>
+    <span class="marquee-item">Colombia</span>
+    <span class="marquee-item">Tailandia</span>
+    <span class="marquee-item">Marruecos</span>
+    <span class="marquee-item">Trail · Aventura</span>
+    <span class="marquee-item">Fly &amp; Ride</span>
+    <span class="marquee-item">Grupos pequeños</span>
+    <span class="marquee-item">Rutas a medida</span>
+  </div>
+</div>
+
+<section class="intro" id="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div>
+        <p class="section-eyebrow">El estudio de viajes</p>
+        <h2 class="section-title"><span class="word-reveal">No vendemos viajes.<br>Diseñamos <em>experiencias</em>.</span></h2>
+      </div>
+      <div>
+        <p class="section-text">Llevamos años recorriendo carreteras y pistas que la mayoría de mapas no marcan. Conocemos los talleres, los hoteles que cuidan la moto como tú la cuidas, y los desvíos donde el viaje se vuelve recuerdo. Ese conocimiento lo metemos en cada ruta — para que tú solo conduzcas.</p>
+        <div class="intro-stats">
+          <div>
+            <div class="stat-num"><span class="count-up" data-target="14">0</span>+</div>
+            <p class="stat-label">Destinos en cartera</p>
+          </div>
+          <div>
+            <div class="stat-num"><span class="count-up" data-target="320">0</span>+</div>
+            <p class="stat-label">Moteros guiados</p>
+          </div>
+          <div>
+            <div class="stat-num">10</div>
+            <p class="stat-label">Plazas máx. por grupo</p>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <p class="stat-label">Asistencia mecánica</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="experiencias">
+  <div class="container">
+    <p class="section-eyebrow">Modalidades</p>
+    <h2 class="section-title"><span class="word-reveal">Cómo se viaja con<br>nosotros.</span></h2>
+    <div class="servicios-grid">
+      <div class="servicio">
+        <p class="servicio-num">01 / Rutas guiadas</p>
+        <h3>Viajes en grupo cerrado</h3>
+        <p>Itinerarios diseñados por nuestros guías. Vehículo de apoyo, hotel reservado, etapas medidas. Tú abres gas, el resto está resuelto. Grupos de 6 a 10 motos.</p>
+      </div>
+      <div class="servicio">
+        <p class="servicio-num">02 / Fly &amp; Ride</p>
+        <h3>Vuela y monta</h3>
+        <p>Vuelas tú, te esperamos con la moto preparada al pie del avión. Marruecos, Sudamérica, Balcanes. Ideal cuando el destino está lejos y el tiempo apretado.</p>
+      </div>
+      <div class="servicio">
+        <p class="servicio-num">03 / Alquiler</p>
+        <h3>Moto preparada</h3>
+        <p>Trail y maxi-trail con mantenimiento certificado, maletas, GPS y seguro a todo riesgo. Ruta sugerida o libre. Recogida y entrega flexibles.</p>
+      </div>
+      <div class="servicio">
+        <p class="servicio-num">04 / Eventos motoclub</p>
+        <h3>A medida para tu grupo</h3>
+        <p>Salidas privadas, despedidas, viajes corporativos o motoclubes. Diseñamos la ruta a medida de vuestras motos, ritmo y kilómetros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proceso" id="proceso">
+  <div class="container">
+    <p class="section-eyebrow">Cómo trabajamos</p>
+    <h2 class="section-title"><span class="word-reveal">De la primera llamada<br>al último kilómetro.</span></h2>
+    <div class="proceso-grid">
+      <div class="paso">
+        <p class="paso-num">01</p>
+        <h4>Briefing</h4>
+        <p>Hablamos del viaje que tienes en la cabeza: destino, fechas, kilómetros, ritmo y nivel del grupo.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">02</p>
+        <h4>Diseño</h4>
+        <p>Ruta etapa por etapa, hoteles probados, paradas clave y plan B en mano. Te lo enviamos para validarlo.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">03</p>
+        <h4>En carretera</h4>
+        <p>Guía local + vehículo de apoyo + asistencia mecánica. Tú conduces, nosotros gestionamos imprevistos.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">04</p>
+        <h4>Después</h4>
+        <p>Fotos y vídeos del viaje, tracks GPX guardados y la primera frase para hablar del siguiente destino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proyectos-preview" id="viajes-preview">
+  <div class="container">
+    <p class="section-eyebrow">Próximos viajes</p>
+    <h2 class="section-title"><span class="word-reveal">Calendario abierto.</span></h2>
+    <div class="proyectos-preview-grid">
+      <a class="proyecto-card" href="viajes.html">
+        <div class="proyecto-card-bg" style="background-image: url('assets/hero-still.jpg');"></div>
+        <div class="proyecto-card-content">
+          <div><p class="proyecto-tag">Trail · Mayo 2026</p></div>
+          <div>
+            <p class="proyecto-title">Marruecos<br>Atlas Total</p>
+            <p class="proyecto-meta">10 días · 2.800 km · pistas + asfalto</p>
+          </div>
+        </div>
+      </a>
+      <a class="proyecto-card" href="viajes.html">
+        <div class="proyecto-card-bg" style="background-image: linear-gradient(135deg, #1a2a1a 0%, #FF5E14 100%);"></div>
+        <div class="proyecto-card-content">
+          <div><p class="proyecto-tag">Fly &amp; Ride · Julio 2026</p></div>
+          <div>
+            <p class="proyecto-title">Colombia<br>Andes &amp; Café</p>
+            <p class="proyecto-meta">12 días · 3.200 km · pistas + asfalto</p>
+          </div>
+        </div>
+      </a>
+      <a class="proyecto-card" href="viajes.html">
+        <div class="proyecto-card-bg" style="background-image: linear-gradient(135deg, #1a1205 0%, #FFA94D 100%);"></div>
+        <div class="proyecto-card-content">
+          <div><p class="proyecto-tag">Aventura · Sept 2026</p></div>
+          <div>
+            <p class="proyecto-title">Tailandia<br>Norte Salvaje</p>
+            <p class="proyecto-meta">10 días · 2.100 km · selva + montaña</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top: 3rem;">
+      <a href="viajes.html" class="btn-ghost">Ver todos los viajes →</a>
+    </div>
+  </div>
+</section>
+
+<section class="testimonios" id="testimonios">
+  <div class="container">
+    <p class="section-eyebrow">La voz de los moteros</p>
+    <h2 class="section-title"><span class="word-reveal">Lo que cuentan<br>quienes han <em>rodado</em>.</span></h2>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="testimonio-stars" aria-label="5 de 5">★★★★★</div>
+        <p class="testimonio-quote">"Llevaba años queriendo cruzar el Atlas. Con ellos lo hice sin pensar en nada que no fuera la próxima curva. Logística impecable y un guía que conocía a todo el mundo en cada pueblo."</p>
+        <p class="testimonio-author">Iker M.</p>
+        <p class="testimonio-meta">Marruecos · KTM 890 Adventure</p>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-stars" aria-label="5 de 5">★★★★★</div>
+        <p class="testimonio-quote">"Reservé el fly&amp;ride a Albania medio escéptico y volví convertido. Moto a punto, hoteles seleccionados y rutas que no encuentras en ningún blog."</p>
+        <p class="testimonio-author">Marta R.</p>
+        <p class="testimonio-meta">Albania · Tenere 700</p>
+      </div>
+      <div class="testimonio-card">
+        <div class="testimonio-stars" aria-label="5 de 5">★★★★★</div>
+        <p class="testimonio-quote">"Organicé el viaje del motoclub con ellos. 12 motos, 6 días, cero incidencias gestionadas por nosotros. La gente sigue hablando de la cena del segundo día."</p>
+        <p class="testimonio-author">David S.</p>
+        <p class="testimonio-meta">Pirineos · Evento privado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-grid">
+      <h2>¿Tienes un<br>destino en la cabeza?</h2>
+      <div>
+        <p>Cuéntanoslo. Diseñamos la ruta, preparamos la moto y te respondemos con un plan en menos de 24h.</p>
+        <a href="contacto.html" class="btn-primary">Empezar el viaje →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="footer-brand-logo" aria-label="Motobiker Xperiences"><img src="assets/logo.png" alt="Motobiker Xperiences"></a>
+      <p class="footer-desc">Agencia de viajes guiados en moto. Rutas trail, aventura, fly&amp;ride, alquiler y eventos motoclub. Viajes en moto. Destinos que te transforman.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="viajes.html">Viajes</a></li>
+        <li><a href="experiencias.html">Experiencias</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="contacto.html">Reservar viaje</a></li>
+        <li><a href="mailto:hola@motobiker-xperiences.com">hola@motobiker-xperiences.com</a></li>
+        <li><a href="tel:+34000000000">+34 000 00 00 00</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Síguenos</h4>
+      <ul>
+        <li><a href="#" rel="noopener">Instagram</a></li>
+        <li><a href="#" rel="noopener">YouTube</a></li>
+        <li><a href="#" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-monumental" aria-hidden="true">MOTOBIKER</div>
+  <div class="footer-bottom">
+    <span>© Motobiker Xperiences · Todos los derechos reservados</span>
+    <span>Viajes en moto. Destinos que te transforman.</span>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  // MÓVIL: autoplay loop simple (Safari iOS no soporta scrubbing fiable)
+  (function () {
+    var video = document.getElementById('heroVideo');
+    if (!video) return;
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      video.setAttribute('autoplay', '');
+      video.setAttribute('loop', '');
+      video.muted = true;
+      video.loop = true;
+      video.play().catch(function () {});
+      return;
+    }
+  }());
+
+  // DESKTOP: scroll-driven con rAF lerp continuo
+  // Con keyframe-per-frame, asignar currentTime cuesta casi nada → podemos
+  // interpolar suavemente hacia el target en cada frame sin saltos ni snaps.
+  (function () {
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+    var video   = document.getElementById('heroVideo');
+    var wrapper = document.querySelector('.scroll-video-wrapper');
+    if (!video || !wrapper) return;
+
+    var complete = false;
+    var rafId    = null;
+    var current  = 0;
+    var LERP     = 0.18; // 0.10 = muy cinematográfico · 0.30 = muy reactivo
+
+    function wrapTop() { return wrapper.getBoundingClientRect().top + window.scrollY; }
+    function range()   { return Math.max(1, wrapper.offsetHeight - window.innerHeight); }
+    function targetTime() {
+      if (!video.duration) return 0;
+      var scrolled = Math.max(0, window.scrollY - wrapTop());
+      return Math.min(1, scrolled / range()) * video.duration;
+    }
+
+    function tick() {
+      if (!video.duration) { rafId = null; return; }
+      var target = targetTime();
+      var diff   = target - current;
+      // Si la diferencia es grande (scroll rápido), aceleramos el lerp
+      var k = Math.abs(diff) > 0.8 ? Math.min(0.5, LERP + Math.abs(diff) * 0.08) : LERP;
+      if (Math.abs(diff) < 0.003) {
+        current = target;
+        try { video.currentTime = current; } catch (_) {}
+        if (target >= video.duration - 0.1) complete = true;
+        rafId = null;
+        return;
+      }
+      current += diff * k;
+      try { video.currentTime = current; } catch (_) {}
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function onScroll() {
+      if (!video.duration) return;
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('wheel', function (e) {
+      if (complete || !video.duration || e.deltaY <= 0) return;
+      var wrapperEnd = wrapTop() + range();
+      if (window.scrollY + e.deltaY > wrapperEnd && video.currentTime < video.duration - 0.3) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    var touchStartY = 0;
+    window.addEventListener('touchstart', function (e) {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (complete || !video.duration) return;
+      var dy = touchStartY - e.touches[0].clientY;
+      if (dy <= 0) return;
+      var wrapperEnd = wrapTop() + range();
+      if (window.scrollY + dy > wrapperEnd && video.currentTime < video.duration - 0.3) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    video.addEventListener('loadeddata', function () {
+      video.pause();
+      current = 0;
+      video.currentTime = 0;
+      onScroll();
+    });
+    video.addEventListener('ended', function () { complete = true; });
+  }());
+</script>
+
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="page-transition" aria-hidden="true"></div>
+<script src="assets/premium.js" defer></script>
+</body>
+</html>
