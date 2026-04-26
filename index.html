@@ -582,19 +582,22 @@
     }
   }());
 
-  // DESKTOP: scroll-driven con rAF lerp continuo
+  // DESKTOP: scroll-driven con rAF lerp continuo + decoder pre-warm
   // Con keyframe-per-frame, asignar currentTime cuesta casi nada → podemos
   // interpolar suavemente hacia el target en cada frame sin saltos ni snaps.
+  // PREWARM: el primer scrub stuttering desaparece si reproducimos el vídeo
+  // entero a 4x al cargar, forzando al decoder a cachear todos los frames.
   (function () {
     if (window.matchMedia('(max-width: 768px)').matches) return;
     var video   = document.getElementById('heroVideo');
     var wrapper = document.querySelector('.scroll-video-wrapper');
     if (!video || !wrapper) return;
 
+    var ready    = false;   // gate scroll handler hasta que prewarm acabe
     var complete = false;
     var rafId    = null;
     var current  = 0;
-    var LERP     = 0.18; // 0.10 = muy cinematográfico · 0.30 = muy reactivo
+    var LERP     = 0.18;
 
     function wrapTop() { return wrapper.getBoundingClientRect().top + window.scrollY; }
     function range()   { return Math.max(1, wrapper.offsetHeight - window.innerHeight); }
@@ -605,10 +608,9 @@
     }
 
     function tick() {
-      if (!video.duration) { rafId = null; return; }
+      if (!ready || !video.duration) { rafId = null; return; }
       var target = targetTime();
       var diff   = target - current;
-      // Si la diferencia es grande (scroll rápido), aceleramos el lerp
       var k = Math.abs(diff) > 0.8 ? Math.min(0.5, LERP + Math.abs(diff) * 0.08) : LERP;
       if (Math.abs(diff) < 0.003) {
         current = target;
@@ -623,8 +625,49 @@
     }
 
     function onScroll() {
-      if (!video.duration) return;
+      if (!ready || !video.duration) return;
       if (!rafId) rafId = requestAnimationFrame(tick);
+    }
+
+    function finishPrewarm() {
+      if (ready) return;
+      try { video.pause(); } catch (_) {}
+      video.playbackRate = 1;
+      try { video.currentTime = 0; } catch (_) {}
+      current = 0;
+      ready = true;
+      onScroll();
+    }
+
+    function prewarm() {
+      if (!video.duration) {
+        video.addEventListener('loadeddata', prewarm, { once: true });
+        return;
+      }
+      video.muted = true;
+      video.playbackRate = 4;
+      var p = video.play();
+      // Safety net: si por lo que sea no termina en 2x el tiempo esperado, asumimos listo
+      var safetyMs = (video.duration / 4) * 1000 + 1500;
+      var safety = setTimeout(finishPrewarm, safetyMs);
+      video.addEventListener('ended', function () {
+        clearTimeout(safety);
+        finishPrewarm();
+      }, { once: true });
+      if (p && p.then) {
+        p.catch(function () {
+          // Autoplay bloqueado → fallback con seek-sampling de 12 frames
+          clearTimeout(safety);
+          var samples = 12, i = 0;
+          function nextSeek() {
+            if (i >= samples) { finishPrewarm(); return; }
+            try { video.currentTime = (i / (samples - 1)) * video.duration; } catch (_) {}
+            i++;
+            video.addEventListener('seeked', nextSeek, { once: true });
+          }
+          nextSeek();
+        });
+      }
     }
 
     window.addEventListener('wheel', function (e) {
@@ -650,13 +693,10 @@
     }, { passive: false });
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    video.addEventListener('loadeddata', function () {
-      video.pause();
-      current = 0;
-      video.currentTime = 0;
-      onScroll();
-    });
     video.addEventListener('ended', function () { complete = true; });
+
+    // Arrancar el prewarm en cuanto haya datos
+    prewarm();
   }());
 </script>
 
