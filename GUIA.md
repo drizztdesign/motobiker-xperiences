@@ -154,7 +154,20 @@ Bitácora cronológica de cómo se construyó esta web. Cada entrada documenta u
 
 ## 9. Deploy e infraestructura
 
-_(pendiente — primer deploy cuando el cliente confirme el dominio y los datos reales)_
+### 2026-04-26 — Primer deploy a GitHub + Vercel
+
+**Qué:** Repo creado en GitHub (`drizztdesign/motobiker-xperiences`, público) y enlazado a Vercel. Producción visible en `motobiker-xperiences.vercel.app` con alias automático que coincide con los canonicals que ya estaban en las meta tags de las 5 páginas.
+**Por qué:** El cliente pidió "subir a GitHub". Se eligió `motobiker-xperiences` como nombre del repo (en vez de `txonlan` que es el nombre interno de la carpeta) porque las canonical URLs y JSON-LD ya apuntaban a `motobiker-xperiences.vercel.app` desde el setup SEO inicial — coherencia.
+**Cómo:**
+- `git add . && git commit -m "Initial commit: Motobiker Xperiences premium site"`
+- `gh repo create motobiker-xperiences --public --source=. --push`
+- `vercel link --yes --project motobiker-xperiences`
+- `vercel git connect https://github.com/drizztdesign/motobiker-xperiences --yes`
+- `vercel deploy --prod --yes` para promover el primer deploy
+- Vercel asignó automáticamente el alias `motobiker-xperiences.vercel.app`
+- A partir de aquí: `git push origin main` redespliega solo.
+**Archivos:** .vercel/ (creado), .git/config (remote añadido), CLAUDE.md (URLs actualizadas)
+
 
 ### 2026-04-26 — Re-encodar vídeos hero con keyframe por frame (fluidez)
 

@@ -30,11 +30,9 @@ El index reserva el "huevo" para el efecto scroll-video del kit (`<!-- SCROLL-VI
 
 ## Producción
 
-_(se rellena tras el primer deploy)_
-
-- 🌐 _(URL Vercel pendiente)_
-- 📦 _(URL GitHub pendiente)_
-- Auto-deploy: cada `git push origin main` despliega solo.
+- 🌐 https://motobiker-xperiences.vercel.app
+- 📦 https://github.com/drizztdesign/motobiker-xperiences
+- Auto-deploy: cada `git push origin main` despliega solo (Vercel webhook).
 
 ## Para desplegar cambios
 
